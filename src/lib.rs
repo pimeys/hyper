@@ -59,7 +59,7 @@ macro_rules! unimplemented {
 mod mock;
 pub mod client;
 pub mod error;
-mod method;
+pub mod method;
 pub mod header;
 mod http;
 pub mod server;
