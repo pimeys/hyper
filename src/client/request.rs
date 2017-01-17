@@ -2,7 +2,7 @@ use std::fmt;
 
 use Url;
 
-use header::Headers;
+use header::{Headers, Header};
 use http::{Body, RequestHead};
 use method::Method;
 use uri::Uri;
@@ -65,6 +65,10 @@ impl Request {
     /// Set the body of the request.
     #[inline]
     pub fn set_body<T: Into<Body>>(&mut self, body: T) { self.body = Some(body.into()); }
+
+    /// Add header to the request.
+    #[inline]
+    pub fn set_header<H: Header>(&mut self, value: H) { self.headers_mut().set(value) }
 }
 
 impl fmt::Debug for Request {
